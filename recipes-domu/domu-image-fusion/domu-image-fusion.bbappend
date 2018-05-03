@@ -13,26 +13,30 @@ XT_QUIRK_UNPACK_SRC_URI += "\
 
 XT_QUIRK_BB_ADD_LAYER += " \
     meta-xt-prod-extra \
+    oe-meta-go \
 "
 
 FUSION_GIT = "fusion_git"
 
 SRC_URI = " \
     repo://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo;protocol=https;branch=dab;manifest=dab_4.0.2.xml;scmdata=keep;name=agl-repo \
-    git://github.com/xen-troops/agl-fusion.git;destsuffix=${FUSION_GIT};protocol=https;branch=master;name=fusion \
     git://github.com/mem/oe-meta-go.git;protocol=https;destsuffix=repo/oe-meta-go;branch=master;name=metago \
 "
 
+SRC_URI_append = " \
+    file://0001-add-go-version-1.10.1.patch;patchdir=oe-meta-go \
+    file://0002-add-golang.org-x-sys-package.patch;patchdir=oe-meta-go \
+"
+
+
 XT_QUIRK_UNPACK_SRC_URI += " \
-    file://${WORKDIR}/${FUSION_GIT}/meta-agl-telemetry;subdir=repo/meta-agl-devel \
-    file://${WORKDIR}/${FUSION_GIT}/meta-app-container;subdir=repo \
-    file://${WORKDIR}/${FUSION_GIT}/agl-telemetry;subdir=repo/meta-agl-devel/templates/feature \
 "
 
 SRCREV_fusion = "93064cdddc24a0e7cf0ad06a967eca4280cde27d"
 SRCREV_metago = "514b2a80a2a4235687e92fb28328bb3e7c2d6c74"
 
-XT_AGL_FEATURES += "agl-telemetry"
+XT_AGL_FEATURES += " \
+"
 
 configure_versions() {
     local local_conf="${S}/build/conf/local.conf"

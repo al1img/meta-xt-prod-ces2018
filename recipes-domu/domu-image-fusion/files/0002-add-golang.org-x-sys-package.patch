@@ -1,0 +1,35 @@
+From 4cef5ce91c2c7b1634706f6d4a8244286b4a7a4b Mon Sep 17 00:00:00 2001
+From: Oleksandr Grytsov <oleksandr_grytsov@epam.com>
+Date: Thu, 26 Apr 2018 17:14:18 +0300
+Subject: [PATCH 2/2] add golang.org/x/sys package
+
+Signed-off-by: Oleksandr Grytsov <oleksandr_grytsov@epam.com>
+---
+ recipes-system/golang.org-x-sys/golang.org-x-sys.bb | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 recipes-system/golang.org-x-sys/golang.org-x-sys.bb
+
+diff --git a/recipes-system/golang.org-x-sys/golang.org-x-sys.bb b/recipes-system/golang.org-x-sys/golang.org-x-sys.bb
+new file mode 100644
+index 0000000..b565567
+--- /dev/null
++++ b/recipes-system/golang.org-x-sys/golang.org-x-sys.bb
+@@ -0,0 +1,15 @@
++DESCRIPTION = "Go sys"
++SECTION = "net"
++HOMEPAGE = "https://godoc.org/golang.org/x/sys"
++
++GO_IMPORT = "golang.org/x/sys"
++
++inherit go
++
++SRC_URI = "\
++    git://github.com/golang/sys.git;protocol=https;name=sys;destsuffix=${PN}-${PV}/src/${GO_IMPORT} \
++    "
++
++SRCREV = "${AUTOREV}"
++LICENSE = "BSD-3-Clause"
++LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=5d4950ecb7b26d2c5e4e7b4e0dd74707"
+-- 
+2.14.1
+

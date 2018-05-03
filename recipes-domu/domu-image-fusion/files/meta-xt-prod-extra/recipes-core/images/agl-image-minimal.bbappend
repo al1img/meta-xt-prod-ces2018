@@ -1,5 +1,6 @@
 IMAGE_INSTALL_append = " \
     tzdata \
+    aosservicemanager \
 "
 
 populate_vmlinux () {
