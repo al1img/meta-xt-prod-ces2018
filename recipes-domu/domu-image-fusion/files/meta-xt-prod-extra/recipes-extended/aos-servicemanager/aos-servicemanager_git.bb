@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 GO_IMPORT = "gitpct.epam.com/epmd-aepr/aos_servicemanager"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://git@${GO_IMPORT}.git;protocol=ssh;destsuffix=${PN}-${PV}/src/${GO_IMPORT};branch=aos-demo-2"
+SRC_URI = "git://git@${GO_IMPORT}.git;protocol=ssh;destsuffix=${PN}-${PV}/src/${GO_IMPORT};branch=master"
 
 GO_CGO_ENABLED = "1"
 
@@ -21,6 +21,7 @@ DEPENDS += "\
     github.com-opencontainers-runtime-spec \
     github.com-sirupsen-logrus \
     github.com-streadway-amqp \
+    github.com-shirou-gopsutil \
 "
 
 RDEPENDS_${PN} += "\
