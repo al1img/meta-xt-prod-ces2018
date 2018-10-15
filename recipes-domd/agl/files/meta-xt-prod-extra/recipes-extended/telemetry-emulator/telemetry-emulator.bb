@@ -9,10 +9,9 @@ PV = "0.1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-SRCREV = "6ecd1dd10ebbd9b290df5bf18f76b927c89a0854"
+SRCREV = "${AUTOREV}"
 SRC_URI = " \
     git://git@gitpct.epam.com/epmd-aepr/demo_insurance;protocol=ssh;branch=develop \
-    file://0001-emulator-make-log-compatible-with-python3.5.patch \
     file://telemetry-emulator.service \
 "
 
